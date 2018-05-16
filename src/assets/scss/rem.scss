@@ -1,0 +1,89 @@
+@function pxToRem($px){
+    @return $px / 20 * 1rem; 
+}
+
+@mixin width($w){
+	width:pxToRem($w);
+}
+@mixin height($h){
+	height:pxToRem($h);
+}
+@mixin elementSize($w,$h){
+	width:pxToRem($w);
+	height:pxToRem($h);
+}
+
+@mixin ml($px) {
+	margin-left:pxToRem($px);
+}
+@mixin mt($px) {
+	margin-top:pxToRem($px);
+}
+@mixin mr($px) {
+	margin-right:pxToRem($px);
+}
+@mixin mb($px) {
+	margin-bottom:pxToRem($px);
+}
+@mixin pl($px) {
+	padding-left:pxToRem($px);
+}	
+@mixin pt($px) {
+	padding-top:pxToRem($px);
+}
+@mixin pr($px) {
+	padding-right:pxToRem($px);
+}
+@mixin pb($px) {
+	padding-bottom:pxToRem($px);
+}
+
+
+@for $i from 1 through 30 {
+  .ml#{$i} { margin-left: $i* 1rem; }
+  .mt#{$i} { margin-top: $i* 1rem; }
+  .mr#{$i} { margin-right: $i* 1rem; }
+  .mb#{$i} { margin-bottom: $i* 1rem; }
+  .pl#{$i} { padding-left: $i* 1rem; }
+  .pt#{$i} { padding-top: $i* 1rem; }
+  .pr#{$i} { padding-right: $i* 1rem; }
+  .pb#{$i} { padding-bottom: $i* 1rem; }
+}
+
+$item-list: 0,5,10,15,20,25,30,35,40;
+@each $item in $item-list {
+	.ml#{$item} {
+		margin-left:$item * 1rem;
+	}
+	.mt#{$item} {
+		margin-top:$item * 1rem;
+	}
+	.mr#{$item} {
+		margin-right:$item * 1rem;
+	}
+	.mb#{$item} {
+		margin-bottom:$item * 1rem;
+	}
+	.pl#{$item} {
+		padding-left:$item * 1rem;
+	}	
+	.pt#{$item} {
+		padding-top:$item * 1rem;
+	}
+	.pr#{$item} {
+		padding-right:$item * 1rem;
+	}
+	.pb#{$item} {
+		padding-bottom:$item * 1rem;
+	}
+}
+
+
+$linkColor: #08c #333 !default;//第一个值为默认值，第二个鼠标滑过值
+a{
+  color:nth($linkColor,2);
+
+  &:hover{
+    color:nth($linkColor,1);
+  }
+}
